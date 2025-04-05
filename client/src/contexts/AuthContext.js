@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (email, password) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://notice-management-wmw2.onrender.com/api/auth/login",
         {
           email,
           password,
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (name, email, password, role) => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://notice-management-wmw2.onrender.com/api/auth/register",
         {
           name,
           email,

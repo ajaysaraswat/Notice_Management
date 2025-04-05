@@ -20,9 +20,12 @@ const Home = () => {
   const fetchNotices = async () => {
     try {
       const token = localStorage.getItem("token");
-      const response = await axios.get("http://localhost:5000/api/notices", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const response = await axios.get(
+        "https://notice-management-wmw2.onrender.com/api/notices",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setNotices(response.data);
     } catch (error) {
       toast.error(error.response?.data?.message || "Failed to fetch notices");
@@ -35,9 +38,13 @@ const Home = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/notices", formData, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.post(
+        "https://notice-management-wmw2.onrender.com/api/notices",
+        formData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       toast.success("Notice created successfully");
       setShowForm(false);
       setFormData({ title: "", content: "" });
@@ -58,7 +65,7 @@ const Home = () => {
       }
 
       const response = await axios.delete(
-        `http://localhost:5000/api/notices/${id}`,
+        `https://notice-management-wmw2.onrender.com/api/notices/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
